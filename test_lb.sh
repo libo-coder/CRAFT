@@ -1,3 +1,1 @@
-python test_lb.py \
-    --trained_model=E:/work_xinhuo_OCR/saved_model/CRAFT/weights/craft_ic15_20k.pth \
-    --test_folder=E:/work_xinhuo_OCR/saved_model/CRAFT/data/
+python test_lb.py --trained_model=./weights/craft_ic15_20k.pth --test_folder=./data/ --text_threshold=0.5 --result_folder=./result/

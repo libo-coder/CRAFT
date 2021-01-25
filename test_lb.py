@@ -89,12 +89,13 @@ if __name__ == '__main__':
     parser.add_argument('--text_threshold', default=0.5, type=float, help='text confidence threshold')  # 0.5, 0.7
     parser.add_argument('--low_text', default=0.4, type=float, help='text low-bound score')  # 0.4
     parser.add_argument('--link_threshold', default=0.2, type=float, help='link confidence threshold')  # 0.2, 0.35
-    parser.add_argument('--cuda', default=False, type=str2bool, help='Use cuda to train model')  # True
+    parser.add_argument('--cuda', default=True, type=str2bool, help='Use cuda to train model')  # True, False
     parser.add_argument('--canvas_size', default=720, type=int, help='image size for inference')  # 720, 1280
     parser.add_argument('--mag_ratio', default=1.0, type=float, help='image magnification ratio')
     parser.add_argument('--poly', default=False, action='store_true', help='enable polygon type')
     parser.add_argument('--show_time', default=False, action='store_true', help='show processing time')
     parser.add_argument('--test_folder', default='data/', type=str, help='folder path to input images')
+    parser.add_argument('--result_folder', default='result/', type=str, help='folder path to input images')
 
     args = parser.parse_args()
 
@@ -102,8 +103,8 @@ if __name__ == '__main__':
     image_list, _, _ = file_utils.get_files(args.test_folder)
     print('len(img_list): ', len(image_list))
 
-    # result_folder = 'result/'
-    result_folder = 'E:/work_xinhuo_OCR/saved_model/CRAFT/result/'
+    # result_folder = './result/'
+    result_folder = args.result_folder
     if not os.path.isdir(result_folder):
         os.mkdir(result_folder)
 
